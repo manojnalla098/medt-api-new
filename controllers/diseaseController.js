@@ -6,26 +6,54 @@ const ApiFeatures = require("../utils/apifeatures");
 // create Disease
 exports.createDisease = async (req, res, next)=>{
     try {
-        const disease = await Disease.create(req.body); 
-    } catch (error) {
+        const disease = await Disease.create(req.body);
         res.status(201).json({
-            success:true, 
-            disease
-        }); 
-    } 
+          success: true,
+          disease,
+        });
+      } catch (error) {
+        res.status(501).json({
+          success: false,
+          massage: error._message,
+          error:error
+        });
+        res.status(400).json({
+          success: false,
+          massage: error._message,
+          error:error
+        });
+        res.status(500).json({
+          success: false,
+          massage: error._message,
+          error:error
+        });
+      }
 }
 
 //Get  Disease
 exports.getAllDisease = async(req, res)=>{
     try {
         const disease = await Disease.find(); 
+        res.status(200).json({
+            success:true, 
+            disease
+        });
     } catch (error) {
-        
-    res.status(200).json({
-        success:true, 
-        disease
-    });
-     
+      res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
     }
 };
 
@@ -33,7 +61,7 @@ exports.getAllDisease = async(req, res)=>{
 
 exports.UpdateDisease = async (req, res,next)=>{
     try {
-        let  = await Disease.findById(req.params.id);
+        let disease  = await Disease.findById(req.params.id);
         if(!disease)
         {
            return res.status(500).json({
@@ -47,11 +75,26 @@ exports.UpdateDisease = async (req, res,next)=>{
             useFindAndModify:false, 
             runValidators:true
         });  
-    } catch (error) {
         res.status(200).json({
             success:true, 
             disease
         });  
+    } catch (error) {
+      res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
     }
 };
 
@@ -75,6 +118,20 @@ exports.deleteDisease = async(req,res,next)=>{
             message:"Disease Delete Successfully"
         }) 
     } catch (error) {
-        
+      res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
     }
 };

@@ -15,7 +15,21 @@ exports.createBanner =catchAsyncErrors( async (req, res, next)=>{
       banner
   });
   } catch (error) {
-   
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 });
 
@@ -33,7 +47,21 @@ exports.Getbannerbyid = catchAsyncErrors(async (req, res, next) => {
       banner,
     });
   } catch (error) {
-   
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
   });
 
@@ -71,7 +99,21 @@ exports.UpdatewebsiteBanner = catchAsyncErrors(async (req, res, next)=>{
         });
 
   } catch (error) {
-
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
 
   }
   });
@@ -110,7 +152,21 @@ exports.UpdatemobileBanner = catchAsyncErrors(async (req, res, next)=>{
             banner
         });
   } catch (error) {
-     
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }  
 });
 

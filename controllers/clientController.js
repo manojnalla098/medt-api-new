@@ -15,7 +15,21 @@ exports.registerClient =catchAsyncErrors(async (req, res, next)=>{
       client
   });
   } catch (error) {
- 
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 });
 
@@ -37,7 +51,21 @@ exports.loginClient = catchAsyncErrors(async (req, res, next) => {
     }
     sendClientToken(client, 200, res);
   } catch (error) {
- 
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 });
 
@@ -62,12 +90,22 @@ exports.isClient = catchAsyncErrors(async (req, res, next) => {
     client.otp = otp;
     sendClientToken(client, 200, res);
   } catch (error) {
- 
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
-  // res.status(200).json({
-  //   success: true,
-  //   isClient: true,
-  // });
 });
 
 
@@ -89,7 +127,21 @@ exports.updateClientRole = catchAsyncErrors(async (req, res, next) => {
       success: true,
     }); 
   } catch (error) {
-   
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 });
 
@@ -114,7 +166,21 @@ exports.deleteClient = catchAsyncErrors(async (req, res, next) => {
       message: "Client Deleted Successfully",
     });
   } catch (error) {
-    
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 });
 
@@ -144,6 +210,22 @@ exports.registerClientWithPassword = catchAsyncErrors(async (req, res, next) => 
       success: true,
       client,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 

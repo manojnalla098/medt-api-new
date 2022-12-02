@@ -9,26 +9,35 @@ const cloudinary = require("cloudinary");
 // create product
 
 exports.createProducts = catchAsyncErrors(async (req, res, next) => {
+  console.log("mmmmmmaaa");
+  console.log(req.body);
   try {
     const product = await Product.create(req.body);
     // const productprice = await Productprice.create(req.body);
-
-    req.body.productId = product._id;
+    if (!product) {
+      return res.status(500).json({
+        success: false,
+        message: "Product not found",
+      });}
+      else
+      {
+        req.body.productId = product._id;
     
-    let ZoneArray = await Zone.find();
-    let ZoneId = ZoneArray[0]._id;
-    req.body.zoneId = ZoneId;
-    const productprice = await Productprice.create(req.body);
-    req.body.status = false;
-    req.body.hot = false;
-    req.body.stocks = 0;
-
-    for (let i = 1; i < ZoneArray.length; i++) {
-      ZoneId = ZoneArray[i]._id;
-      req.body.zoneId = ZoneId;
-      const productprice = await Productprice.create(req.body);
+        let ZoneArray = await Zone.find();
+        let ZoneId = ZoneArray[0]._id;
+        req.body.zoneId = ZoneId;
+        const productprice = await Productprice.create(req.body);
+        req.body.status = false;
+        req.body.hot = false;
+        req.body.stocks = 0;
+    
+        for (let i = 1; i < ZoneArray.length; i++) {
+          ZoneId = ZoneArray[i]._id;
+          req.body.zoneId = ZoneId;
+          const productprice = await Productprice.create(req.body);
+        }
     }
-
+    
     res.status(201).json({
       success: true,
       product,
@@ -42,17 +51,7 @@ exports.createProducts = catchAsyncErrors(async (req, res, next) => {
   }
 });
 
-//Get All Product
-// exports.getAllProducts = catchAsyncErrors(async (req, res) => {
-//   try {
-//     const product = await Product.find();
 
-//     res.status(200).json({
-//       success: true,
-//       product,
-//     });
-//   } catch (error) {}
-// });
 exports.getAllProducts = catchAsyncErrors(async (req, res) => {
   try {
     const product = await Product.find();
@@ -61,7 +60,23 @@ exports.getAllProducts = catchAsyncErrors(async (req, res) => {
       success: true,
       product,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 //Get  Product with price
@@ -74,7 +89,23 @@ exports.productwithprice = catchAsyncErrors(async (req, res) => {
       success: true,
       productprice,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 exports.getProductpricebyzoneid = catchAsyncErrors(async (req, res) => {
@@ -86,7 +117,23 @@ exports.getProductpricebyzoneid = catchAsyncErrors(async (req, res) => {
       success: true,
       productprice,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 exports.Getproductbyid = catchAsyncErrors(async (req, res, next) => {
@@ -102,7 +149,23 @@ exports.Getproductbyid = catchAsyncErrors(async (req, res, next) => {
       success: true,
       product,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 
@@ -141,7 +204,23 @@ exports.GetproductbySlugUrl = catchAsyncErrors(async (req, res, next) => {
       product,
       productprice,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 exports.getProductsbyname = catchAsyncErrors(async (req, res, next) => {
@@ -159,7 +238,23 @@ exports.getProductsbyname = catchAsyncErrors(async (req, res, next) => {
       success: true,
       product,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 exports.getProductsbySuperCategoryname = catchAsyncErrors(
@@ -177,7 +272,23 @@ exports.getProductsbySuperCategoryname = catchAsyncErrors(
         success: true,
         product,
       });
-    } catch (error) {}
+    } catch (error) {
+      res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+    }
   }
 );
 
@@ -211,7 +322,23 @@ exports.Updateicon = catchAsyncErrors(async (req, res, next) => {
       success: true,
       product,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 
@@ -247,7 +374,23 @@ exports.Updatedesktopicon = catchAsyncErrors(async (req, res, next) => {
       success: true,
       product,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 //update Product
@@ -270,7 +413,23 @@ exports.Updateproduct = catchAsyncErrors(async (req, res, next) => {
       success: true,
       product,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 exports.Updatethumbnail = catchAsyncErrors(async (req, res, next) => {
@@ -305,11 +464,29 @@ exports.Updatethumbnail = catchAsyncErrors(async (req, res, next) => {
       success: true,
       product,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 exports.Uploadthumbnail = catchAsyncErrors(async (req, res, next) => {
   try {
+    console.log("hi");
+    console.log(req.body);
     
     const thumbnail = await cloudinary.v2.uploader.upload(
       req.body.thumbnail,
@@ -329,7 +506,147 @@ exports.Uploadthumbnail = catchAsyncErrors(async (req, res, next) => {
       success: true,
       thumbnails,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
+});
+
+exports.Uploadicons = catchAsyncErrors(async (req, res, next) => {
+  try {
+    console.log("hiii");
+    console.log(req.body);
+    const icon = await cloudinary.v2.uploader.upload(
+      req.body.icon,
+      {
+        folder: "Product/Icons",
+        width: 150,
+        crop: "scale",
+      }
+    );
+
+    const icons = {
+      public_id: icon.url.slice(60, 71),
+      url: icon.secure_url,
+    };
+    
+    res.status(200).json({
+      success: true,
+      icons,
+    });
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
+});
+
+exports.Uploaddesktop = catchAsyncErrors(async (req, res, next) => {
+  try {
+    console.log("hiiiii");
+    console.log(req.body);
+    
+    const desktopicon = await cloudinary.v2.uploader.upload(
+      req.body.desktopicon,
+      {
+        folder: "Product/Desktop",
+        width: 150,
+        crop: "scale",
+      }
+    );
+
+    const desktopicons = {
+      public_id: desktopicon.url.slice(60, 71),
+      url: desktopicon.secure_url,
+    };
+    
+    res.status(200).json({
+      success: true,
+      desktopicons,
+    });
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
+});
+
+exports.Uploadbanner = catchAsyncErrors(async (req, res, next) => {
+  try {
+    console.log("hi2");
+    console.log(req.body);
+    const sliderImages = await cloudinary.v2.uploader.upload(
+      req.body.sliderImages,
+      {
+        folder: "Product/SliderImages",
+        width: 150,
+        crop: "scale",
+      }
+    );
+
+    const sliderImage = {
+      public_id: sliderImages.url.slice(60, 71),
+      url: sliderImages.secure_url,
+    };
+    
+    res.status(200).json({
+      success: true,
+      sliderImage,
+    });
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 exports.UpdateSliderImages = catchAsyncErrors(async (req, res, next) => {
@@ -364,7 +681,23 @@ exports.UpdateSliderImages = catchAsyncErrors(async (req, res, next) => {
       success: true,
       product,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 //Delete Product
@@ -385,5 +718,21 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
       success: true,
       message: "Product Delete Successfully",
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });

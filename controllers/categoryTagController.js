@@ -5,20 +5,30 @@ const ApiFeatures = require("../utils/apifeatures");
 
 // create categoryTag
 exports.createcategoryTag = catchAsyncErrors(async (req, res, next) => {
-  try {
+  try {  
+    console.log(req.body);
     const categorytag = await categoryTag.create(req.body);
-    if (!categorytag) {
-      return res.status(500).json({
-        success: false,
-        message: "categorytag not found",
-      });
-    }
+    console.log(categorytag);
     res.status(201).json({
       success: true,
       categorytag,
     });
   } catch (error) {
-   
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 });
 
@@ -37,7 +47,21 @@ exports.getAllcategoryTag = catchAsyncErrors(async (req, res) => {
       categorytag,
     });
   } catch (error) {
-    
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 });
 
@@ -51,7 +75,21 @@ exports.getcategoryTagbycatId = catchAsyncErrors(async (req, res) => {
       categorytag,
     });
   } catch (error) {
-   
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 });
 
@@ -76,7 +114,21 @@ exports.UpdatecategoryTag = catchAsyncErrors(async (req, res, next) => {
       categorytag,
     });
   } catch (error) {
-    
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 });
 
@@ -99,6 +151,20 @@ exports.deletecategoryTag = catchAsyncErrors(async (req, res, next) => {
       message: "categorytag Delete Successfully",
     });
   } catch (error) {
-  
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 });

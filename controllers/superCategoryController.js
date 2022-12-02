@@ -8,17 +8,31 @@ const ApiFeatures = require("../utils/apifeatures");
 exports.createsuperCategory = async (req, res, next) => {
   try {
     const supercategory = await Supercategory.create(req.body);
-  } catch (error) {
     res.status(201).json({
       success: true,
       supercategory,
+    });
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
     });
   }
 };
 
 //Get  superCategory
 exports.getAllsupercategory = async (req, res) => {
- 
   try {
     const supercategory = await Supercategory.find();
     res.status(200).json({
@@ -26,10 +40,21 @@ exports.getAllsupercategory = async (req, res) => {
       supercategory,
     });
   } catch (error) {
-    // return res.status(500).json({
-    //   success: false,
-    //   message: "Supercategory not found",
-    // });
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 };
 
@@ -38,19 +63,32 @@ exports.getSupercategorybyname = async (req, res, next) => {
   try {
     let supercategory = await Supercategory.findOne({ name: req.params.name });
 
-  if (!supercategory) {
-    return res.status(500).json({
-      success: false,
-      message: "Supercategory not found",
+    if (!supercategory) {
+      return res.status(500).json({
+        success: false,
+        message: "Supercategory not found",
+      });
+    }
+    return res.status(200).json({
+      success: true,
+      supercategory,
     });
-  } 
-  return res.status(200).json({
-    success: true,
-    supercategory,
-  });
-
   } catch (error) {
-  
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 };
 
@@ -86,7 +124,21 @@ exports.UpdateSupercategory = async (req, res, next) => {
       supercategory,
     });
   } catch (error) {
-  
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 };
 
@@ -102,14 +154,27 @@ exports.deleteSupercategory = async (req, res, next) => {
         message: "Supercategory not found",
       });
     }
-  
+
     await supercategory.remove();
     res.status(200).json({
       success: true,
       message: "Supercategory Delete Successfully",
     });
   } catch (error) {
-    
-
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 };

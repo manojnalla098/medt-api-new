@@ -14,7 +14,21 @@ exports.createProductApproval =catchAsyncErrors( async (req, res, next)=>{
             productapproval
         });
     } catch (error) {
-       
+      res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
     } 
 });
 //Get All ProductApproval
@@ -26,7 +40,21 @@ exports.getAllProductApproval = catchAsyncErrors(async(req, res)=>{
             productapproval
         });
     } catch (error) {
-       
+      res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
     }
 });
 
@@ -54,7 +82,21 @@ exports.UpdateProductApproval =catchAsyncErrors( async (req, res,next)=>{
         productapproval
     });
     } catch (error) {
-       
+      res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
     }
 });
 
@@ -78,7 +120,21 @@ try {
         message:"ProductApproval Delete Successfully"
     }) 
 } catch (error) {
- 
+  res.status(501).json({
+    success: false,
+    massage: error._message,
+    error:error
+  });
+  res.status(400).json({
+    success: false,
+    massage: error._message,
+    error:error
+  });
+  res.status(500).json({
+    success: false,
+    massage: error._message,
+    error:error
+  });
 }
 });
 
@@ -99,7 +155,21 @@ exports.GetproductApprovalbyid = catchAsyncErrors(async (req, res,next)=>{
         productapproval
     });
     } catch (error) {
-        
+      res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
     
     }
 });
@@ -119,7 +189,21 @@ exports.GetproductapprovalbyNull = catchAsyncErrors(async (req, res,next)=>{
         productApproval
 });  
     } catch (error) {
-    
+      res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
     }
 });
 
@@ -139,7 +223,21 @@ exports.GetproductapprovalbyNotNull = catchAsyncErrors(async (req, res,next)=>{
             productApproval
     }); 
     } catch (error) {
-    
+      res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
     }
 });
 
@@ -160,8 +258,21 @@ exports.getProductsApprovalbySuperCategoryname = catchAsyncErrors(async (req, re
             productApproval
         }); 
     } catch (error) {
-        
-    
+      res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
     }
 });
 
@@ -181,7 +292,21 @@ exports.GetproductbySlugUrl = catchAsyncErrors(async (req, res,next)=>{
             productApproval
     });  
     } catch (error) {
- 
+      res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
     }
 });
 
@@ -221,7 +346,21 @@ try {
         });
     
 } catch (error) {
-  
+  res.status(501).json({
+    success: false,
+    massage: error._message,
+    error:error
+  });
+  res.status(400).json({
+    success: false,
+    massage: error._message,
+    error:error
+  });
+  res.status(500).json({
+    success: false,
+    massage: error._message,
+    error:error
+  });
 }  
   });
 
@@ -258,6 +397,20 @@ try {
         productapproval,
       });  
     } catch (error) {
-        
+      res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
     }
   });

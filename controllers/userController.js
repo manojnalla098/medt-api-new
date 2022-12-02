@@ -30,7 +30,23 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
       success: true,
       user,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 // Login User
@@ -61,7 +77,23 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
       email,
       clientid,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 // Logout User
@@ -158,7 +190,23 @@ exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
       success: true,
       user,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 // update User password
@@ -180,7 +228,23 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
 
     await user.save();
     sendUserToken(user, 200, res);
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 // update User Profile
@@ -199,7 +263,23 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
     res.status(200).json({
       success: true,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 // Get all users(admin)
@@ -210,7 +290,23 @@ exports.getAllUser = catchAsyncErrors(async (req, res, next) => {
       success: true,
       users,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 // Get single user (admin)
@@ -227,7 +323,23 @@ exports.getSingleUser = catchAsyncErrors(async (req, res, next) => {
       success: true,
       user,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 // update User Role -- Admin
@@ -247,7 +359,23 @@ exports.updateUserRole = catchAsyncErrors(async (req, res, next) => {
     res.status(200).json({
       success: true,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 // Delete User --Admin
@@ -270,5 +398,21 @@ exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
       success: true,
       message: "User Deleted Successfully",
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });

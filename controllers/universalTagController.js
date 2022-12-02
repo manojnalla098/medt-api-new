@@ -12,7 +12,21 @@ exports.createuniversalTag = catchAsyncErrors(async (req, res, next)=>{
             universaltag
         });
     } catch (error) {
-        
+        res.status(501).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(400).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(500).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
     }
 })
 
@@ -25,7 +39,21 @@ exports.getAlluniversalTag = catchAsyncErrors(async(req, res)=>{
             universaltag
         });  
     } catch (error) {
-     
+        res.status(501).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(400).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(500).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
     }  
 });
 
@@ -52,7 +80,21 @@ exports.UpdateuniversalTag = catchAsyncErrors(async (req, res,next)=>{
             universaltag
         });
     } catch (error) {
-      
+        res.status(501).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(400).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(500).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
     }
 });
 
@@ -77,6 +119,20 @@ try {
     })
 } catch (error) {
   
-    
+    res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
 }
 });

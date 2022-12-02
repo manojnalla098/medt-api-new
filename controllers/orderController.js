@@ -43,7 +43,21 @@ exports.getAllOrder = catchAsyncErrors(async(req, res)=>{
       order
   });
   } catch (error) {
-  
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 });
 
@@ -63,7 +77,21 @@ exports.getOrderbyzoneid = catchAsyncErrors(
       order,
     });
     } catch (error) {
-     
+      res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
     }
 });
 
@@ -83,7 +111,21 @@ exports.getOrderByClientId = catchAsyncErrors(
       order,
     });
     } catch (error) {
-     
+      res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
     }
 });
 
@@ -104,7 +146,21 @@ exports.getProductsbyorderid = catchAsyncErrors(
       products,
     });
     } catch (error) {
-     
+      res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
     }
 });
 
@@ -125,7 +181,21 @@ exports.getOrderebyClientid = catchAsyncErrors(
       products,
     });
     } catch (error) {
-     
+      res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
     }
 });
 
@@ -145,7 +215,21 @@ exports.getSingleOrder = catchAsyncErrors(async (req, res, next) => {
       order,
     });
   } catch (error) {
-   
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 });
 
@@ -158,7 +242,21 @@ exports.myOrders = catchAsyncErrors(async (req, res, next) => {
       orders,
     });
   } catch (error) {
-  
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 });
 
@@ -178,7 +276,21 @@ exports.getAllOrders = catchAsyncErrors(async (req, res, next) => {
       orders,
     });
   } catch (error) {
-  
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 });
 
@@ -192,7 +304,21 @@ exports.getAllOrder = catchAsyncErrors(async(req, res)=>{
       order
   });
   } catch (error) {
-
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 });
 exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
@@ -213,7 +339,24 @@ exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
       success: true,
       order,
     });
-  } catch (error) {}
+  } catch (error) {
+
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 // update Order Status -- Admin
@@ -263,6 +406,20 @@ exports.deleteOrder = catchAsyncErrors(async (req, res, next) => {
       success: true,
     });
   } catch (error) {
-  
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 });

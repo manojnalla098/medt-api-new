@@ -1,5 +1,5 @@
 const express = require("express");
-const { createEmployee, getAllEmployee, UpdateEmployee, deleteEmployee, loginEmployee,
+const { createEmployee, getAllEmployee, UpdateEmployee, deleteEmployee, loginEmployee,UploadAvatar
       } = require("../controllers/employeeController");
 
 
@@ -11,4 +11,7 @@ router.route("/employee/all").get(getAllEmployee);
 router.route("/employee/:id").put(UpdateEmployee);
 router.route("/employee/:id").delete(deleteEmployee);
 router.route("/employee/login").post(loginEmployee);
+
+
+router.route("/employee/avatar").post(UploadAvatar);
 module.exports = router;

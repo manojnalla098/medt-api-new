@@ -36,7 +36,6 @@ app.use(fileUpload({ useTempFiles: true }));
 //  })
 const corsOptions = {
   origin: "*",
-  
   optionSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
@@ -66,6 +65,9 @@ app.use("/api/v1", superCategory);
 
 const Category = require('./routes/categoryRoute');
 app.use("/api/v1", Category);
+
+const CategoryNew = require('./routes/categoryRouteNew');
+app.use("/api/v2", CategoryNew);
 
 const chemical = require('./routes/chemicalRoute');
 app.use("/api/v1", chemical);

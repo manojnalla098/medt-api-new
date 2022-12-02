@@ -87,6 +87,14 @@ const productSchema = mongoose.Schema(
       public_id: String,
       url: String,
     },
+    icon: {
+      public_id: String,
+      url: String,
+    },
+    desktopicon: {
+      public_id: String,
+      url: String,
+    },
     categoryTag: String,
     universalTag: String,
 
@@ -119,14 +127,7 @@ const productSchema = mongoose.Schema(
       type: String,
       default:"admin",
     },
-    icon: {
-      public_id: String,
-      url: String,
-    },
-    desktopicon: {
-      public_id: String,
-      url: String,
-    },
+  
 
   },
   { timestamps: true }

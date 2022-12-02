@@ -8,25 +8,30 @@ const ApiFeatures = require("../utils/apifeatures");
 // create zone
 exports.createZone = catchAsyncErrors(async (req, res, next)=>{
     try {
+        console.log("hi");
+        console.log(req.body);
         const zone = await Zone.create(req.body);
-    const newZoneId = zone._id;
-    
-    const firstZone = await Zone.findOne();
-    const firstZoneId =firstZone._id;
-   
-    const productPriceArr = await Productprice.find({zoneId:firstZoneId});
-    
-    const myProductPriceArr = [...productPriceArr].zoneId= newZoneId;
-   
-    // myProductPriceArr.map(async(Singlerow)=>{
-    //    await Productprice.create(Singlerow);
-    // }); 
-    res.status(201).json({
+        console.log("hellow");
+        res.status(201).json({
         success:true, 
         zone
     }); 
     } catch (error) {
-       
+        res.status(501).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(400).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(500).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
     }
 });
 
@@ -41,8 +46,21 @@ exports.getAllzone = catchAsyncErrors(async(req, res)=>{
             zone
         });
     } catch (error) {
-      
-        
+        res.status(501).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(400).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(500).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
     }
 });
 
@@ -69,7 +87,21 @@ exports.UpdateZone = catchAsyncErrors(async (req, res,next)=>{
         zone
     }); 
     } catch (error) {
-     
+        res.status(501).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(400).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(500).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
     }
 });
 
@@ -93,6 +125,20 @@ exports.deleteZone =catchAsyncErrors(async(req,res,next)=>{
         message:"Zone Delete Successfully"
     })
       } catch (error) {
-       
+        res.status(501).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(400).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(500).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
       }
 });

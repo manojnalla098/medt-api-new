@@ -14,7 +14,21 @@ exports.createStock = catchAsyncErrors(async (req, res, next)=>{
             stock
         });
     } catch (error) {
-        
+        res.status(501).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(400).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(500).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
     }
 })
 
@@ -27,6 +41,20 @@ exports.getAllStock = catchAsyncErrors(async(req, res)=>{
             stock
         });  
     } catch (error) {
-     
+        res.status(501).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(400).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(500).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
     }  
 });

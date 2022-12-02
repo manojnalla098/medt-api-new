@@ -51,7 +51,21 @@ exports.getSingleOrderItem = catchAsyncErrors(async (req, res, next) => {
       orderItem,
     });
   } catch (error) {
-   
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 });
 
@@ -64,7 +78,21 @@ exports.myOrderItems = catchAsyncErrors(async (req, res, next) => {
       orderItems,
     });
   } catch (error) {
- 
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 });
 
@@ -84,7 +112,21 @@ exports.getAllOrderItems = catchAsyncErrors(async (req, res, next) => {
       orderItems,
     });
   } catch (error) {
-   
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 });
 
@@ -117,7 +159,21 @@ exports.updateOrderItem = catchAsyncErrors(async (req, res, next) => {
       success: true,
     });
   } catch (error) {
- 
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 });
 
@@ -143,6 +199,20 @@ exports.deleteOrderItem = catchAsyncErrors(async (req, res, next) => {
       success: true,
     });
   } catch (error) {
-  
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 });

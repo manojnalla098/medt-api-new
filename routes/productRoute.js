@@ -18,7 +18,10 @@ const {
   Updateicon,
   Updatedesktopicon,
   getAllproductbycategorySlugurl,
-  Uploadthumbnail
+  Uploadthumbnail,
+  Uploadicons,
+  Uploadbanner,
+  Uploaddesktop
 } = require("../controllers/products");
 
 router.route("/product/all").get(getAllProducts);
@@ -37,6 +40,12 @@ router.route("/product/:id").put(Updateproduct);
 router.route("/product/:id").delete(deleteProduct);
 router.route("/product/withprice").get(productwithprice);
 router.route("/product/productprice/:zoneid/:productid").get(getProductpricebyzoneid);
-router.route("/product/thumbnail").put(Uploadthumbnail);
+
+
+router.route("/product/thumbnail").post(Uploadthumbnail);
+router.route("/product/icons").post(Uploadicons);
+router.route("/product/banner").post(Uploadbanner);
+router.route("/product/desktop").post(Uploaddesktop);
+
 
 module.exports = router;

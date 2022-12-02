@@ -15,7 +15,21 @@ exports.createSlider =catchAsyncErrors( async (req, res, next)=>{
       slider
   });
   } catch (error) {
- 
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
 });
 
@@ -35,7 +49,21 @@ exports.Getsliderbyid = catchAsyncErrors(async (req, res, next) => {
       slider,
     });
   } catch (error) {
-   
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
   });
 //Update websiteSlider
@@ -73,7 +101,21 @@ exports.UpdatewebsiteSlider = catchAsyncErrors(async (req, res, next)=>{
             slider
         }); 
   } catch (error) {
- 
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
   }
   });
 
@@ -112,7 +154,21 @@ try {
         slider
         });
 } catch (error) {
-  
+  res.status(501).json({
+    success: false,
+    massage: error._message,
+    error:error
+  });
+  res.status(400).json({
+    success: false,
+    massage: error._message,
+    error:error
+  });
+  res.status(500).json({
+    success: false,
+    massage: error._message,
+    error:error
+  });
   }
 });
 

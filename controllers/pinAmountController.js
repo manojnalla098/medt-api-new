@@ -2,17 +2,37 @@ const PinAmount = require("../models/pinAmountModel");
 const ErrorHander = require("../utils/errorhander");
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ApiFeatures = require("../utils/apifeatures");
+const { Console } = require("console");
 
 // create pinamount
 exports.createPinAmount = catchAsyncErrors(async (req, res, next) => {
   try {
-    const pinamount = await PinAmount.create(req.body);
+    console.log("kkkkkkk");
+    console.log(req.body);
+    const pinamounts = await PinAmount.create(req.body);
      
     res.status(201).json({
       success: true,
-      pinamount,
+      pinamounts,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  
+  }
 });
 
 
@@ -25,7 +45,23 @@ exports.getAllPinAmount = catchAsyncErrors(async (req, res) => {
       success: true,
       pinamount,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 exports.getAllPinAmountinone = catchAsyncErrors(async (req, res) => {
   try {
@@ -34,7 +70,23 @@ exports.getAllPinAmountinone = catchAsyncErrors(async (req, res) => {
       success: true,
       pinamount,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 exports.Getzoneid = catchAsyncErrors(async (req, res, next) => {
@@ -50,7 +102,23 @@ exports.Getzoneid = catchAsyncErrors(async (req, res, next) => {
       success: true,
       pinamount,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 //update PinAmount
@@ -73,7 +141,23 @@ exports.UpdatePinAmount = catchAsyncErrors(async (req, res, next) => {
       success: true,
       pinamount,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 //Delete Tag
@@ -94,5 +178,21 @@ exports.deletePinAmount = catchAsyncErrors(async (req, res, next) => {
       success: true,
       message: "PinAmount Delete Successfully",
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });

@@ -16,9 +16,20 @@ try {
     address,
   });
 } catch (error) {
+  res.status(501).json({
+    success: false,
+    massage: error._message,
+    error:error
+  });
   res.status(400).json({
     success: false,
-    message: "not crate"
+    massage: error._message,
+    error:error
+  });
+  res.status(500).json({
+    success: false,
+    massage: error._message,
+    error:error
   });
 }
  

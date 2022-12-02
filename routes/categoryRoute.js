@@ -11,6 +11,10 @@ const {
   UpdateSliderImage,
   getcategorybyslugurl,
   getAllcategorybySupercategy,
+  Uploadthumbnail,
+  Uploadicon,
+  Uploadbanner,
+  Uploaddesktopicon,
 } = require("../controllers/categoryController");
 
 
@@ -29,5 +33,12 @@ router.route("/category/banner/:id").put(Updatebanners);
 // router.route("/category/banner/:id").put(UpdateSliderImage);
 router.route("/category/:id").delete(deleteCategory);
 
+router.route("/category/thumbnail").post(Uploadthumbnail);
+router.route("/category/icon").post(Uploadicon);
+router.route("/category/banner").post(Uploadbanner);
+router.route("/category/desktopicon").post(Uploaddesktopicon);
+
+
+  
 
 module.exports = router;

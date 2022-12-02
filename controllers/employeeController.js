@@ -10,6 +10,7 @@ const crypto = require("crypto");
 // create Employee
 
 exports.createEmployee =catchAsyncErrors(async (req, res, next)=>{
+  console.log(req.body)
     try {
       const employee = await Employee.create(req.body);
       res.status(201).json({
@@ -17,7 +18,60 @@ exports.createEmployee =catchAsyncErrors(async (req, res, next)=>{
         employee
     });
     } catch (error) {
-   
+      res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+    }
+  });
+  exports.UploadAvatar = catchAsyncErrors(async (req, res, next) => {
+    try {
+      
+      const avatar = await cloudinary.v2.uploader.upload(
+        req.body.avatar,
+        {
+          folder: "Employee/Avatar",
+          width: 150,
+          crop: "scale",
+        }
+      );
+  
+      const avatars = {
+        public_id: avatar.url.slice(60, 71),
+        url: avatar.secure_url,
+      };
+      
+      res.status(200).json({
+        success: true,
+        avatars,
+      });
+    } catch (error) {
+       res.status(501).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(400).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(500).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
     }
   });
 
@@ -31,7 +85,21 @@ exports.getAllEmployee =catchAsyncErrors(async(req, res)=>{
             employee
         }); 
     } catch (error) {
-      
+      res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
      
     }  
 });
@@ -68,7 +136,21 @@ exports.loginEmployee = catchAsyncErrors(async (req, res, next) => {
         zoneid: zoneid  
       });
     } catch (error) {
-       
+      res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
     } 
   });
 
@@ -96,7 +178,21 @@ exports.UpdateEmployee =catchAsyncErrors( async (req, res,next)=>{
             employee
         });
     } catch (error) {
-      
+      res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
     }
 });
 
@@ -119,7 +215,21 @@ exports.deleteEmployee =catchAsyncErrors(async(req,res,next)=>{
     }) 
     await employee.remove(); 
     } catch (error) {
-       
+      res.status(501).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(400).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
+      res.status(500).json({
+        success: false,
+        massage: error._message,
+        error:error
+      });
     
     }
 });

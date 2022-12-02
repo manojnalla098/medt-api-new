@@ -6,13 +6,171 @@ const cloudinary = require("cloudinary");
 // create Category
 exports.createCategory = catchAsyncErrors(async (req, res, next) => {
   try {
-    const category = await await Category.create(req.body);
+    const category = await Category.create(req.body);
     res.status(201).json({
       success: true,
       category,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
+
+exports.Uploadthumbnail = catchAsyncErrors(async (req, res, next) => {
+  try {
+    const thumbnail = await cloudinary.v2.uploader.upload(req.body.thumbnail, {
+      folder: "Category/Thumbnails",
+      width: 150,
+      crop: "scale",
+    });
+
+    const thumbnails = {
+      public_id: thumbnail.url.slice(60, 71),
+      url: thumbnail.secure_url,
+    };
+
+    res.status(200).json({
+      success: true,
+      thumbnails,
+    });
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
+});
+
+exports.Uploaddesktopicon = catchAsyncErrors(async (req, res, next) => {
+  try {
+    const desktopicon = await cloudinary.v2.uploader.upload(
+      req.body.desktopicon,
+      {
+        folder: "Category/Desktop",
+        width: 150,
+        crop: "scale",
+      }
+    );
+
+    const Desktop = {
+      public_id: desktopicon.url.slice(60, 71),
+      url: desktopicon.secure_url,
+    };
+
+    res.status(200).json({
+      success: true,
+      Desktop,
+    });
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error.massage,
+    });
+  }
+});
+
+exports.Uploadicon = catchAsyncErrors(async (req, res, next) => {
+  try {
+    console.log("hiii");
+    console.log(req.body);
+    const icon = await cloudinary.v2.uploader.upload(
+      req.body.icon,
+      {
+        folder: "Category/Icons",
+        width: 150,
+        crop: "scale",
+      }
+    );
+
+    const icons = {
+      public_id: icon.url.slice(60, 71),
+      url: icon.secure_url,
+    };
+    
+    res.status(200).json({
+      success: true,
+      icons,
+    });
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
+});
+
+exports.Uploadbanner = catchAsyncErrors(async (req, res, next) => {
+  try {
+    const banner = await cloudinary.v2.uploader.upload(req.body.banners, {
+      folder: "Category/Banner",
+      width: 150,
+      crop: "scale",
+    });
+
+    const banners = {
+      public_id: banner.url.slice(60, 71),
+      url: banner.secure_url,
+    };
+
+    res.status(200).json({
+      success: true,
+      banners,
+    });
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
+});
+
 exports.Updatedesktopicon = catchAsyncErrors(async (req, res, next) => {
   try {
     let category = await Category.findById(req.params.id);
@@ -45,7 +203,23 @@ exports.Updatedesktopicon = catchAsyncErrors(async (req, res, next) => {
       success: true,
       category,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 exports.Updatethumbnail = catchAsyncErrors(async (req, res, next) => {
@@ -81,7 +255,23 @@ exports.Updatethumbnail = catchAsyncErrors(async (req, res, next) => {
       success: true,
       category,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 exports.Updateicon = catchAsyncErrors(async (req, res, next) => {
@@ -114,7 +304,23 @@ exports.Updateicon = catchAsyncErrors(async (req, res, next) => {
       success: true,
       category,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 exports.Updatebanners = catchAsyncErrors(async (req, res, next) => {
@@ -147,7 +353,23 @@ exports.Updatebanners = catchAsyncErrors(async (req, res, next) => {
       success: true,
       category,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 //create thumbnail
@@ -155,12 +377,14 @@ exports.Updatebanners = catchAsyncErrors(async (req, res, next) => {
 //Get Category
 
 exports.getAllcategory = catchAsyncErrors(async (req, res) => {
-  const category = await Category.find();
+  try {
+    const category = await Category.find();
 
-  res.status(200).json({
-    success: true,
-    category,
-  });
+    res.status(200).json({
+      success: true,
+      category,
+    });
+  } catch (error) {}
 });
 
 exports.getAllcategorybySupercategy = catchAsyncErrors(async (req, res) => {
@@ -201,7 +425,23 @@ exports.UpdateCategory = catchAsyncErrors(async (req, res, next) => {
       success: true,
       category,
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });
 
 //Delete category
@@ -221,5 +461,21 @@ exports.deleteCategory = catchAsyncErrors(async (req, res, next) => {
       success: true,
       message: "Category Delete Successfully",
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(501).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(400).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+    res.status(500).json({
+      success: false,
+      massage: error._message,
+      error:error
+    });
+  }
 });

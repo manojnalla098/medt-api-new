@@ -13,7 +13,21 @@ exports.createchemical =catchAsyncErrors( async (req, res, next)=>{
             chemical
         });
     } catch (error) {
-        
+        res.status(501).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(400).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(500).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
     }
 });
 
@@ -26,7 +40,21 @@ exports.getAllchemical =catchAsyncErrors( async(req, res)=>{
             chemical
         }); 
     } catch (error) {
-       
+        res.status(501).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(400).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(500).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
     }
 });
 
@@ -53,7 +81,21 @@ exports.UpdateChemical =catchAsyncErrors( async (req, res,next)=>{
             chemical
         }); 
     } catch (error) {
-    
+        res.status(501).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(400).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(500).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
     }  
 });
 
@@ -76,6 +118,20 @@ exports.deleteChemical =catchAsyncErrors( async(req,res,next)=>{
             message:"Chemical Delete Successfully"
         }) 
     } catch (error) {
-       
+        res.status(501).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(400).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
+          res.status(500).json({
+            success: false,
+            massage: error._message,
+            error:error
+          });
     }
 });
