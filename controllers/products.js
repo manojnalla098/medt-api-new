@@ -9,8 +9,7 @@ const cloudinary = require("cloudinary");
 // create product
 
 exports.createProducts = catchAsyncErrors(async (req, res, next) => {
-  console.log("mmmmmmaaa");
-  console.log(req.body);
+
   try {
     const product = await Product.create(req.body);
     // const productprice = await Productprice.create(req.body);
@@ -485,9 +484,7 @@ exports.Updatethumbnail = catchAsyncErrors(async (req, res, next) => {
 
 exports.Uploadthumbnail = catchAsyncErrors(async (req, res, next) => {
   try {
-    console.log("hi");
-    console.log(req.body);
-    
+
     const thumbnail = await cloudinary.v2.uploader.upload(
       req.body.thumbnail,
       {
@@ -527,8 +524,6 @@ exports.Uploadthumbnail = catchAsyncErrors(async (req, res, next) => {
 
 exports.Uploadicons = catchAsyncErrors(async (req, res, next) => {
   try {
-    console.log("hiii");
-    console.log(req.body);
     const icon = await cloudinary.v2.uploader.upload(
       req.body.icon,
       {
@@ -568,8 +563,6 @@ exports.Uploadicons = catchAsyncErrors(async (req, res, next) => {
 
 exports.Uploaddesktop = catchAsyncErrors(async (req, res, next) => {
   try {
-    console.log("hiiiii");
-    console.log(req.body);
     
     const desktopicon = await cloudinary.v2.uploader.upload(
       req.body.desktopicon,
@@ -610,8 +603,6 @@ exports.Uploaddesktop = catchAsyncErrors(async (req, res, next) => {
 
 exports.Uploadbanner = catchAsyncErrors(async (req, res, next) => {
   try {
-    console.log("hi2");
-    console.log(req.body);
     const sliderImages = await cloudinary.v2.uploader.upload(
       req.body.sliderImages,
       {

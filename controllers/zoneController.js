@@ -8,10 +8,9 @@ const ApiFeatures = require("../utils/apifeatures");
 // create zone
 exports.createZone = catchAsyncErrors(async (req, res, next)=>{
     try {
-        console.log("hi");
-        console.log(req.body);
+
         const zone = await Zone.create(req.body);
-        console.log("hellow");
+
         res.status(201).json({
         success:true, 
         zone

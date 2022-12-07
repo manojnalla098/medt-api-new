@@ -374,7 +374,6 @@ exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
 //       useFindAndModify: false,
 //       runValidators: true,
 //     });
-//     console.log("hello");
 //     res.status(200).json({
 //       success: true,
 //       order,

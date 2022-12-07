@@ -36,7 +36,6 @@ try {
 });
 
   // exports.createAddress= async (req, res, next)=>{
-  //   console.log("Hii");
   //   try {
   //     const address = await Address.create(req.body);
   //     res.status(201).json({

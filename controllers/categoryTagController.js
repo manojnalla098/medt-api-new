@@ -6,9 +6,8 @@ const ApiFeatures = require("../utils/apifeatures");
 // create categoryTag
 exports.createcategoryTag = catchAsyncErrors(async (req, res, next) => {
   try {  
-    console.log(req.body);
+
     const categorytag = await categoryTag.create(req.body);
-    console.log(categorytag);
     res.status(201).json({
       success: true,
       categorytag,
@@ -20,8 +19,7 @@ exports.createcategoryTag = catchAsyncErrors(async (req, res, next) => {
       error:error
     });
     res.status(400).json({
-      success: false,
-      massage: error._message,
+      success: false,      massage: error._message,
       error:error
     });
     res.status(500).json({

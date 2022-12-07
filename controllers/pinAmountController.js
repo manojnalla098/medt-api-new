@@ -7,8 +7,6 @@ const { Console } = require("console");
 // create pinamount
 exports.createPinAmount = catchAsyncErrors(async (req, res, next) => {
   try {
-    console.log("kkkkkkk");
-    console.log(req.body);
     const pinamounts = await PinAmount.create(req.body);
      
     res.status(201).json({

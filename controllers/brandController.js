@@ -159,8 +159,7 @@ exports.deleteBrand = async (req, res, next) => {
 // upload
 exports.Uploadicon = catchAsyncErrors(async (req, res, next) => {
   try {
-    console.log("hiii");
-    console.log(req.body);
+
     const icon = await cloudinary.v2.uploader.upload(
       req.body.icon,
       {
@@ -200,8 +199,7 @@ exports.Uploadicon = catchAsyncErrors(async (req, res, next) => {
 
 exports.Uploadthumbnail = catchAsyncErrors(async (req, res, next) => {
   try {
-    console.log("hiii");
-    console.log(req.body);
+
     const thumbnail = await cloudinary.v2.uploader.upload(
       req.body.thumbnail,
       {

@@ -96,8 +96,6 @@ exports.Uploaddesktopicon = catchAsyncErrors(async (req, res, next) => {
 
 exports.Uploadicon = catchAsyncErrors(async (req, res, next) => {
   try {
-    console.log("hiii");
-    console.log(req.body);
     const icon = await cloudinary.v2.uploader.upload(
       req.body.icon,
       {

@@ -10,7 +10,6 @@ const crypto = require("crypto");
 // create Employee
 
 exports.createEmployee =catchAsyncErrors(async (req, res, next)=>{
-  console.log(req.body)
     try {
       const employee = await Employee.create(req.body);
       res.status(201).json({
